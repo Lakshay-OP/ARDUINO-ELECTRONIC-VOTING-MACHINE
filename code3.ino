@@ -2,11 +2,12 @@
 
 LiquidCrystal lcd(11, 10, 9, 8, 7, 6);
 
-#define sw1 A0 
+#define sw1 A0
 #define sw2 A1 
 #define sw3 A2 
 #define sw4 A3 
-#define sw5 A4 
+#define sw5 A4
+#define sw6 A5
 #define led3 3  
 
 
@@ -14,6 +15,7 @@ int vote1 = 0;
 int vote2 = 0;
 int vote3 = 0;
 int vote4 = 0;
+bool cb = false;
 
 void setup() {
   pinMode(sw1, INPUT);
@@ -21,8 +23,8 @@ void setup() {
   pinMode(sw3, INPUT);
   pinMode(sw4, INPUT);
   pinMode(sw5, INPUT);
-  pinMode(13, OUTPUT); 
-  pinMode(12, OUTPUT); 
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
   pinMode(led3, OUTPUT);
 
 
@@ -59,32 +61,50 @@ delay(3000);
 }
 
 void loop() {
+  if(cb == true){
   if (digitalRead(sw1) == LOW) {
+    
     lcd.clear();
     lcd.print("Thanks for");
     lcd.setCursor(0, 1);
-    lcd.print("voting P1");
+    lcd.print("voting ");
     digitalWrite(12, HIGH);
-    delay(5000);
+    unsigned long startMillis = millis();
+    while (millis() - startMillis < 10000) {
+        if (digitalRead(sw1) == LOW) {
+            digitalWrite(led3, HIGH); 
+            delay(500);               
+            digitalWrite(led3, LOW);  
+            delay(500);               
+        }
+        
+    }
+
     vote1++;
-    digitalWrite(12, HIGH);
-    delay(1000);
-    while (digitalRead(sw1) == LOW);
+    cb=false;
     digitalWrite(12, LOW);
     showPartyOptions();
-  }
+}
+
 
   if (digitalRead(sw2) == LOW) {
     lcd.clear();
     lcd.print("Thanks for");
     lcd.setCursor(0, 1);
-    lcd.print("voting P2");
+    lcd.print("voting ");
     digitalWrite(12, HIGH);
-    delay(5000);
+    unsigned long startMillis = millis();
+    while (millis() - startMillis < 10000) {
+        if (digitalRead(sw2) == LOW) {
+            digitalWrite(led3, HIGH); 
+            delay(500);               
+            digitalWrite(led3, LOW);  
+            delay(500);               
+        }
+    }
+
     vote2++;
-    digitalWrite(12, HIGH);
-    delay(1000);
-    while (digitalRead(sw2) == LOW);
+    cb=false;
     digitalWrite(12, LOW);
     showPartyOptions();
   }
@@ -93,28 +113,42 @@ void loop() {
     lcd.clear();
     lcd.print("Thanks for");
     lcd.setCursor(0, 1);
-    lcd.print("voting P3");
+    lcd.print("voting ");
     digitalWrite(12, HIGH);
-    delay(5000);
+    unsigned long startMillis = millis();
+    while (millis() - startMillis < 10000) {
+        if (digitalRead(sw3) == LOW) {
+            digitalWrite(led3, HIGH); 
+            delay(500);              
+            digitalWrite(led3, LOW);  
+            delay(500);               
+        }
+    }
+
     vote3++;
-    digitalWrite(12, HIGH);
-    delay(1000);
-    while (digitalRead(sw3) == LOW);
+    cb=false;
     digitalWrite(12, LOW);
     showPartyOptions();
   }
 
   if (digitalRead(sw4) == LOW) {
     lcd.clear();
-    lcd.print("None of the ");
+    lcd.print("Thanks for ");
     lcd.setCursor(0, 1);
-    lcd.print("above is voted ");
+    lcd.print("voting ");
     digitalWrite(12, HIGH);
-    delay(5000);
+    unsigned long startMillis = millis();
+    while (millis() - startMillis < 10000) {
+        if (digitalRead(sw4) == LOW) {
+            digitalWrite(led3, HIGH); 
+            delay(500);               
+            digitalWrite(led3, LOW);  
+            delay(500);               
+        }
+    }
+
     vote4++;
-    digitalWrite(12, HIGH);
-    delay(1000);
-    while (digitalRead(sw4) == LOW);
+    cb=false;
     digitalWrite(12, LOW);
     showPartyOptions();
   }
@@ -151,6 +185,7 @@ void loop() {
     resetVotes();
     showPartyOptions();
   }
+}
 }
 
 void showPartyOptions() {

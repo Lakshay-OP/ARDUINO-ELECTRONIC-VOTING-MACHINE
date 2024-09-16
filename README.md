@@ -2,7 +2,6 @@
 It's a Arduino based electronic voting machine project which i did in my third year of Btech. 
 
 
-Introduction
 This project is an enhanced version of an Arduino-based voting machine, which introduces a system that not only counts votes but also gives visual feedback through an LED. The machine allows users to vote for one of three candidates or choose the NOTA (None of the Above) option. The system provides feedback by blinking an LED for 10 seconds after a vote is cast. The results of the voting process are displayed on a 16x2 Liquid Crystal Display (LCD).
 
 Components Used
@@ -14,7 +13,9 @@ One button to show results.
 One button used to reset or trigger specific functionality.
 LED: Used to provide visual feedback, blinking for 10 seconds after each vote is cast to simulate acknowledgment of the vote.
 Resistors and Jumper Wires: Basic electronic components required for connecting the buttons, LEDs, and LCD to the Arduino.
+
 Working Process
+
 Voting Process:
 Users can cast a vote by pressing one of the four designated buttons. A separate button is provided for each option (P1, P2, P3, and NOTA).
 Upon pressing any of the voting buttons, the system displays a “Thank You” message on the LCD.
@@ -30,6 +31,7 @@ Once the results are shown, the vote counts are reset, and the machine is ready 
 
 Additional Button for Special Functions:
 This version of the voting machine includes a new input (sw6) for potential future expansions. Although it’s not implemented in this current iteration, it can be utilized for various purposes, such as special voting modes or administrative features.
+
 Functionality Breakdown
 Initial Setup:
 

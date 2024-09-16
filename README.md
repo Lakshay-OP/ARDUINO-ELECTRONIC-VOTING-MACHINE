@@ -33,21 +33,25 @@ Additional Button for Special Functions:
 This version of the voting machine includes a new input (sw6) for potential future expansions. Although it’s not implemented in this current iteration, it can be utilized for various purposes, such as special voting modes or administrative features.
 
 Functionality Breakdown
+
 Initial Setup:
 
 Upon startup, the system displays introductory messages on the LCD encouraging users to cast their votes.
 The voting options (P1, P2, P3, and NOTA) are presented on the LCD.
+
 Voting Mechanism:
 
 The user casts a vote by pressing a button corresponding to their chosen candidate or NOTA.
 A confirmation message is displayed on the LCD, and the green LED blinks for 10 seconds as visual feedback.
 Each vote is added to the total count for the corresponding candidate or NOTA.
+
 Result Evaluation:
 
 When the results button is pressed, the system calculates the total votes and determines the winning option.
 The vote counts for P1, P2, P3, and NOTA are displayed on the LCD, and the winning candidate is announced.
 If NOTA receives the highest number of votes, the system displays a message indicating no one won.
 In case of a tie, a message indicating a tie or no result is shown.
+
 Reset Function:
 
 After displaying the results, the system resets the vote counts, readying itself for the next voting session.

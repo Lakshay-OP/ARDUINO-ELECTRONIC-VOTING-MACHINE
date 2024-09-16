@@ -2,12 +2,12 @@
 
 LiquidCrystal lcd(11, 10, 9, 8, 7, 6);
 
-#define sw1 A0 // Button 1
-#define sw2 A1 // Button 2
-#define sw3 A2 // Button 3
-#define sw4 A3 // Button 4
-#define sw5 A4 // Button 5 for result
-#define led3 3  // Pin for the third LED
+#define sw1 A0 
+#define sw2 A1 
+#define sw3 A2 
+#define sw4 A3 
+#define sw5 A4 
+#define led3 3  
 
 
 int vote1 = 0;
@@ -21,8 +21,8 @@ void setup() {
   pinMode(sw3, INPUT);
   pinMode(sw4, INPUT);
   pinMode(sw5, INPUT);
-  pinMode(13, OUTPUT); // Red LED
-  pinMode(12, OUTPUT); // Green LED
+  pinMode(13, OUTPUT); 
+  pinMode(12, OUTPUT); 
   pinMode(led3, OUTPUT);
 
 
